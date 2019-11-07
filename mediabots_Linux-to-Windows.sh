@@ -35,17 +35,17 @@ sudo mkdir /mediabots /floppy /virtio
 link1_status=$(curl -Is http://bit.ly/2pLga7o | grep HTTP | cut -f2 -d" ")
 link2_status=$(curl -Is https://ia601506.us.archive.org/4/items/WS2012R2/WS2012R2.ISO | grep HTTP | cut -f2 -d" ")
 #sudo wget -P /mediabots https://archive.org/download/WS2012R2/WS2012R2.ISO # Windows Server 2012 R2 
-if [ $link1_status = "200" ] ; then 
-	sudo wget -P /mediabots http://bit.ly/2pLga7o
-elif [ $link2_status = "200" -o $link2_status = "301" ] ; then 
-	sudo wget -P /mediabots https://ia601506.us.archive.org/4/items/WS2012R2/WS2012R2.ISO
-else
-	echo -e "${RED}[Error]${NC} ${YELLOW}Sorry! None of Windows OS image urls are available , please report about this issue on Github page : ${NC}https://github.com/mediabots/Linux-to-Windows-with-QEMU"
-	echo "Exiting.."
-	sleep 30
-	exit 1
-fi
-mv /mediabots/2pLga7o /mediabots/WS2012R2.ISO
+#if [ $link1_status = "200" ] ; then 
+#	sudo wget -P /mediabots http://bit.ly/2pLga7o
+e#lif [ $link2_status = "200" -o $link2_status = "301" ] ; then 
+#	sudo wget -P /mediabots https://ia601506.us.archive.org/4/items/WS2012R2/WS2012R2.ISO
+#else
+#	echo -e "${RED}[Error]${NC} ${YELLOW}Sorry! None of Windows OS image urls are available , please report about this issue on Github page : ${NC}https://github.com/mediabots/Linux-to-Windows-with-QEMU"
+##	echo "Exiting.."
+#	sleep 30
+#	exit 1
+#fi
+# mv /mediabots/2pLga7o /mediabots/WS2012R2.ISO
 sudo wget -P /floppy https://ftp.mozilla.org/pub/firefox/releases/64.0/win32/en-US/Firefox%20Setup%2064.0.exe
 sudo mv /floppy/'Firefox Setup 64.0.exe' /floppy/Firefox.exe
 sudo wget -P /floppy https://downloadmirror.intel.com/23073/eng/PROWinx64.exe # Intel Network Adapter for Windows Server 2012 R2 
